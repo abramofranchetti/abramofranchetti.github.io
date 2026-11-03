@@ -3,84 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benvenuto su Abramo Franchetti's GitHub</title>
+    <meta name="theme-color" content="#07111f">
+    <meta name="description" content="Scopri Investire Male, i calcolatori finanziari e i progetti di Abramo Franchetti.">
+    <title>Abramo Franchetti | Investire Male</title>
     <style>
-        /* Stile generale */
+        :root {
+            color-scheme: light;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #172033;
+            background: #f3f5f8;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            --navy: #07111f;
+            --red: #df383e;
+            --muted: #647084;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            min-width: 320px;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #f4f7f6, #d9e3e2);
-            color: #333;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .hero {
+            overflow: hidden;
+            padding: 28px 24px 64px;
+            background:
+                radial-gradient(ellipse at 50% 0, rgba(42, 67, 96, .55), transparent 58%),
+                var(--navy);
+            color: #fff;
+        }
+
+        .hero-inner,
+        main,
+        footer {
+            width: min(100%, 1040px);
+            margin-inline: auto;
+        }
+
+        .brand {
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            gap: 14px;
+            margin: 0 auto 26px;
+            text-align: left;
+        }
+
+        .brand img {
+            width: 64px;
+            height: 64px;
+            flex: 0 0 auto;
+            border: 3px solid rgba(255, 255, 255, .9);
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+        }
+
+        .brand-name {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .brand-name span {
+            color: #fa5559;
+        }
+
+        .brand-caption {
+            margin: 4px 0 0;
+            color: #b6c0ce;
+            font-size: .84rem;
+        }
+
+        .banner {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 18px;
+            box-shadow: 0 22px 60px rgba(0, 0, 0, .35);
+        }
+
+        .hero-copy {
+            max-width: 680px;
+            margin: 34px auto 0;
             text-align: center;
         }
 
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 90%;
+        .hero-copy h1 {
+            margin: 0 0 12px;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            line-height: 1.12;
+            letter-spacing: -.04em;
         }
 
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
+        .hero-copy p {
+            margin: 0;
+            color: #c4ccd7;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            line-height: 1.65;
         }
 
-        p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #555;
+        main {
+            padding: 46px 24px 34px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 28px;
+            padding: 30px;
+            border: 1px solid #e1e6ed;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(18, 32, 54, .06);
+        }
+
+        .project-stamp {
+            display: block;
+            width: 84px;
+            height: 84px;
+            border: 1px solid #e1e6ed;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .projects h2,
+        .social h2 {
+            margin: 0;
+            color: #172033;
+            font-size: clamp(1.35rem, 3vw, 1.75rem);
+            letter-spacing: -.025em;
+        }
+
+        .projects p,
+        .section-intro {
+            margin: 9px 0 0;
+            color: var(--muted);
+            line-height: 1.65;
         }
 
         .button {
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 1rem;
-            color: white;
-            background: #3498db;
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 9px;
+            background: var(--red);
+            color: #fff;
+            font-size: .96rem;
+            font-weight: 750;
+            text-align: center;
             text-decoration: none;
-            border-radius: 6px;
-            transition: background 0.3s ease;
+            transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
         }
 
         .button:hover {
-            background: #2980b9;
+            transform: translateY(-2px);
+            background: #c92c34;
+            box-shadow: 0 8px 18px rgba(223, 56, 62, .2);
+        }
+
+        .social {
+            padding-top: 52px;
+        }
+
+        .social-heading {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .social-card {
+            display: flex;
+            min-height: 112px;
+            align-items: center;
+            gap: 13px;
+            padding: 18px 16px;
+            border: 1px solid #e1e6ed;
+            border-radius: 14px;
+            background: #fff;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(18, 32, 54, .04);
+            transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-3px);
+            border-color: #cbd4df;
+            box-shadow: 0 12px 28px rgba(18, 32, 54, .1);
+        }
+
+        .social-icon {
+            display: grid;
+            width: 44px;
+            height: 44px;
+            flex: 0 0 auto;
+            place-items: center;
+            border-radius: 50%;
+            background: #edf1f6;
+            color: #172033;
+            font-size: 1rem;
+            font-weight: 850;
+        }
+
+        .social-icon.facebook {
+            background: #e8efff;
+            color: #1877f2;
+        }
+
+        .social-icon.reddit {
+            background: #fff0e9;
+            color: #ff4500;
+        }
+
+        .social-icon.youtube {
+            background: #fff0f0;
+            color: #e62117;
+            font-size: .75rem;
+        }
+
+        .social-label {
+            display: block;
+            font-size: .95rem;
+            font-weight: 750;
+            line-height: 1.35;
+        }
+
+        .social-detail {
+            display: block;
+            margin-top: 3px;
+            color: var(--muted);
+            font-size: .8rem;
+            line-height: 1.35;
+        }
+
+        .disclaimer {
+            margin: 36px 0 0;
+            padding: 18px 20px;
+            border-left: 3px solid #cbd4df;
+            color: #687487;
+            font-size: .84rem;
+            line-height: 1.65;
         }
 
         footer {
-            margin-top: 30px;
-            font-size: 0.85rem;
-            color: #888;
+            padding: 0 24px 26px;
+            color: #8993a2;
+            font-size: .82rem;
+            text-align: center;
+        }
+
+        @media (max-width: 760px) {
+            .hero {
+                padding: 22px 18px 46px;
+            }
+
+            .brand {
+                margin-bottom: 20px;
+            }
+
+            .brand img {
+                width: 54px;
+                height: 54px;
+            }
+
+            .banner {
+                border-radius: 12px;
+            }
+
+            .hero-copy {
+                margin-top: 28px;
+            }
+
+            main {
+                padding: 32px 18px 28px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 24px;
+                text-align: center;
+            }
+
+            .project-stamp {
+                justify-self: center;
+            }
+
+            .projects .button {
+                width: 100%;
+            }
+
+            .social {
+                padding-top: 40px;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 420px) {
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-card {
+                min-height: 88px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Benvenuto nel mio spazio GitHub!</h1>
-        <p>
-            Esplora i miei progetti di studio su GitHub.
-            Esplora i vari calcolatori finanziari che ho realizzato per studio personale.            
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="brand">
+                <img src="InvestireMaleIcona.png" alt="Logo di Investire Male" width="64" height="64">
+                <div>
+                    <p class="brand-name">Investire <span>Male</span></p>
+                    <p class="brand-caption">Il posto giusto per gli investimenti sbagliati</p>
+                </div>
+            </div>
+            <img class="banner" src="youtube4.png" alt="Investire Male: dove gli investimenti vanno sempre nella direzione sbagliata" fetchpriority="high">
+            <div class="hero-copy">
+                <h1>Benvenuto nel mio spazio GitHub</h1>
+                <p>Finanza, progetti di studio e calcolatori: esplora il mondo di Investire Male e i miei studi quantitativi, le risorse e gli appunti.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects" aria-labelledby="projects-title">
+            <img class="project-stamp" src="InvestireMaleWatermarkGit.png" alt="Logo circolare di Investire Male" width="84" height="84" loading="lazy">
+            <div>
+                <h2 id="projects-title">Progetti e calcolatori finanziari</h2>
+                <p>Esplora i progetti di studio e i calcolatori finanziari che ho realizzato per curiosità e apprendimento.</p>
+            </div>
+            <a class="button" href="https://abramofranchetti.github.io/FireSWR/">Esplora i calcolatori</a>
+        </section>
+
+        <section class="social" aria-labelledby="social-title">
+            <div class="social-heading">
+                <h2 id="social-title">Seguici anche su</h2>
+                <p class="section-intro">Entra nella community di Investire Male e resta aggiornato sui nuovi contenuti.</p>
+            </div>
+            <div class="social-grid">
+                <a class="social-card" href="https://www.facebook.com/groups/1452814890118179" target="_blank" rel="noopener noreferrer" aria-label="Gruppo Facebook Investire Male, si apre in una nuova scheda">
+                    <span class="social-icon facebook" aria-hidden="true">f</span>
+                    <span><span class="social-label">Gruppo Facebook</span><span class="social-detail">Investire Male</span></span>
+                </a>
+                <a class="social-card" href="https://www.facebook.com/profile.php?id=61595901422466&amp;sk=directory_links" target="_blank" rel="noopener noreferrer" aria-label="Pagina Facebook Investire Male, si apre in una nuova scheda">
+                    <span class="social-icon facebook" aria-hidden="true">f</span>
+                    <span><span class="social-label">Pagina Facebook</span><span class="social-detail">Investire Male</span></span>
+                </a>
+                <a class="social-card" href="https://www.reddit.com/r/InvestireMale/" target="_blank" rel="noopener noreferrer" aria-label="Community Reddit Investire Male, si apre in una nuova scheda">
+                    <span class="social-icon reddit" aria-hidden="true">r/</span>
+                    <span><span class="social-label">Reddit</span><span class="social-detail">r/InvestireMale</span></span>
+                </a>
+                <a class="social-card" href="https://www.youtube.com/@abramofranchetti" target="_blank" rel="noopener noreferrer" aria-label="Canale YouTube Investire Male, si apre in una nuova scheda">
+                    <span class="social-icon youtube" aria-hidden="true">▶</span>
+                    <span><span class="social-label">YouTube</span><span class="social-detail">Canale Investire Male</span></span>
+                </a>
+            </div>
+        </section>
+
+        <p class="disclaimer">
+            Nota: i calcolatori e i contenuti presenti su questo sito sono esercizi di programmazione e hanno solo scopo informativo; non costituiscono consulenza finanziaria. Utilizzali con cautela e verifica sempre le informazioni con un professionista qualificato.
         </p>
-        <p>
-            <small>
-                Nota: I calcolatori e i contenuti presenti su questo sito sono esercizi di programmazione e sono forniti a scopo informativo e non costituiscono consulenza finanziaria. Utilizzali con cautela e verifica sempre le informazioni con un professionista qualificato.
-            </small>
-        </p>
-        <a class="button" href="https://abramofranchetti.github.io/FireSWR/">
-            Esplora i vari calcolatori
-        </a>
-        <footer>
-            © 2024 Abramo Franchetti - Tutti i diritti riservati.
-        </footer>
-    </div>
+    </main>
+
+    <footer>© 2026 Abramo Franchetti · Tutti i diritti riservati</footer>
 </body>
 </html>
